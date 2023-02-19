@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+
+  // constructor(protected auth: AuthService) {
+  // this.auth.state.subscribe(
+  //   authorized => this.tab = authorized ? 'profile' : 'login'
+  // );
+  // }
 }

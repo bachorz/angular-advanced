@@ -1,10 +1,19 @@
-import { Directive } from '@angular/core';
+import {Directive, Input, Output} from '@angular/core';
+import {SelectionService} from './selection.service';
 
 @Directive({
-  selector: '[select]'
+  selector: '[select]',
+  providers: [SelectionService]
 })
 export class SelectDirective {
 
-  constructor() { }
+  constructor(private selection: SelectionService<any>) { }
 
+  @Input('select')
+  set setSelection(newSelection) {
+    this.selection.setSelection(newSelection);
+  }
+
+  @Output()
+  changeSelect = this.selection.selectionChange;
 }
